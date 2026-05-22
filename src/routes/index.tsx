@@ -58,8 +58,8 @@ function Index() {
       >
         <DotLottieReact
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-20 hidden sm:block"
-          src="/hero-bg.json"
+          className="pointer-events-none absolute inset-0 opacity-20"
+          src="https://lottie.host/647eb023-6040-4b60-a275-e2546994dd7f/zDCfp5lhLe.json"
           autoplay
           loop
           renderConfig={{ autoResize: true }}
@@ -70,16 +70,7 @@ function Index() {
             alt="OpenStack"
             className="mb-4 h-10 w-10 rounded-xl border border-border/50 bg-card/60 object-cover backdrop-blur sm:h-12 sm:w-12 sm:mb-5"
           />
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] text-muted-foreground backdrop-blur sm:text-xs">
-            <DotLottieReact
-              className="h-4 w-4 sm:h-5 sm:w-5"
-              src="/badge-spin.json"
-              autoplay
-              loop
-            />
-            Made for South Africans
-          </div>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:mt-5 sm:text-4xl md:text-6xl">
+          <h1 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl md:text-6xl">
             The open directory of <span className="text-primary">useful websites</span>
           </h1>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:mt-4 sm:text-base md:text-lg">
