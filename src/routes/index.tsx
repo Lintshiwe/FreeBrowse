@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Search, Github, Star, UserPlus } from "lucide-react";
+import { Search, Star, UserPlus } from "lucide-react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import productsData from "@/data/products.json";
 import { ProductCard, type Product } from "@/components/ProductCard";
@@ -67,8 +67,7 @@ function Index() {
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-5">
           <div className="flex items-center justify-end gap-2 py-4">
-            <span className="mr-auto inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-[11px] font-medium text-primary sm:text-xs">
-              <Github className="h-3 w-3" />
+            <span className="mr-auto text-[11px] font-semibold tracking-wide text-foreground/70 sm:text-xs">
               Open Source Directory
             </span>
             <a
