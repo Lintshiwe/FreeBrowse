@@ -184,9 +184,34 @@ function Index() {
 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-8 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>Developed by Lintshiwe</p>
-          <span className="inline-flex items-center gap-1.5">
-            <Github className="h-3.5 w-3.5" /> Built as an open directory
+          <p>
+            Developed by{" "}
+            <a
+              className="font-medium text-foreground hover:text-primary transition-colors"
+              href="https://github.com/Lintshiwe"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Lintshiwe
+            </a>
+          </p>
+          <span className="inline-flex items-center gap-3">
+            <a
+              className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+              href="https://github.com/Lintshiwe/FreeBrowse"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github className="h-3.5 w-3.5" /> Star on GitHub
+            </a>
+            <a
+              className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+              href="https://github.com/Lintshiwe"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github className="h-3.5 w-3.5" /> Follow @Lintshiwe
+            </a>
           </span>
         </div>
       </footer>
