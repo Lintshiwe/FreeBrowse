@@ -1,15 +1,15 @@
 <p align="center">
-  <img src="public/hero-animation.gif" alt="FreeBrowse animation" width="600" />
+  <img src="https://raw.githubusercontent.com/Lintshiwe/FreeBrowse/main/public/hero-animation.gif" alt="FreeBrowse" width="600" />
 </p>
 
 <h1 align="center">FreeBrowse</h1>
 
 <p align="center">
-  The open directory of <strong>useful websites</strong> — a curated, well-organised catalog of free, freemium, open-source and paid tools. Searchable by category, platform, and pricing. Seeded from the PeerPush community.
+  The open directory of <strong>useful websites</strong> — a curated, well-organised catalog of free, freemium, open-source and paid tools. Built for South Africans — students, entrepreneurs, and small businesses.
 </p>
 
 <p align="center">
-  <a href="https://freebowse.netlify.app"><strong>Live Demo</strong></a>
+  <a href="https://freebrowse.netlify.app"><strong>freebrowse.netlify.app</strong></a>
 </p>
 
 ---
