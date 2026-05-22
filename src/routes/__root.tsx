@@ -71,7 +71,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=5" },
+      { name: "theme-color", content: "#161a24" },
       { title: "OpenStack — Free & Open Source Tools Directory" },
       {
         name: "description",
@@ -87,15 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Browse hundreds of free, freemium, and open-source products and websites in one place.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/favicon.png" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@OpenStackHQ" },
     ],
     links: [
-      {
-        rel: "icon",
-        type: "image/png",
-        href: "/favicon.png",
-      },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png" },
+      { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/favicon.png" },
       {
         rel: "stylesheet",
         href: appCss,

@@ -48,7 +48,6 @@ function Index() {
   }, [query, pricing, category, platform]);
 
   const shown = filtered.slice(0, visible);
-  const freeCount = PRODUCTS.filter((p) => p.pricing === "Free" || p.pricing === "Freemium").length;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -59,46 +58,46 @@ function Index() {
       >
         <DotLottieReact
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-20"
-          src="https://lottie.host/e641272e-039b-4612-96de-138acfbede6e/bc0sW78EeR.lottie"
+          className="pointer-events-none absolute inset-0 opacity-20 hidden sm:block"
+          src="/hero-bg.json"
           autoplay
           loop
           renderConfig={{ autoResize: true }}
         />
-        <div className="relative mx-auto max-w-6xl px-5 py-16 md:py-24">
+        <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-5 sm:py-16 md:py-24">
           <img
-            src="/logo.png"
+            src="/favicon.png"
             alt="OpenStack"
-            className="mb-5 h-12 w-12 rounded-xl border border-border/50 bg-card/60 object-cover backdrop-blur"
+            className="mb-4 h-10 w-10 rounded-xl border border-border/50 bg-card/60 object-cover backdrop-blur sm:h-12 sm:w-12 sm:mb-5"
           />
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-[11px] text-muted-foreground backdrop-blur sm:text-xs">
             <DotLottieReact
-              className="h-5 w-5"
-              src="https://lottie.host/f315768c-a29b-41fd-b5a8-a1c1dfb36cd2/CRiiNg8fqQ.lottie"
+              className="h-4 w-4 sm:h-5 sm:w-5"
+              src="/badge-spin.json"
               autoplay
               loop
             />
-            {PRODUCTS.length.toLocaleString()} tools indexed · {freeCount.toLocaleString()} free or
-            freemium
+            Made for South Africans
           </div>
-          <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
+          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:mt-5 sm:text-4xl md:text-6xl">
             The open directory of <span className="text-primary">useful websites</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
-            A curated, well-organised catalog of free, freemium, open-source and paid tools —
-            searchable by category, platform, and pricing. Seeded from the PeerPush community.
+          <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:mt-4 sm:text-base md:text-lg">
+            Discover free and affordable digital tools that matter. Built to help South Africans —
+            students, entrepreneurs, and small businesses — find the right software without breaking
+            the bank.
           </p>
 
-          <div className="mt-8 flex w-full max-w-2xl items-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
-            <Search className="h-5 w-5 text-muted-foreground" />
+          <div className="mt-6 flex w-full max-w-2xl items-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg sm:mt-8">
+            <Search className="h-5 w-5 shrink-0 text-muted-foreground" />
             <input
               value={query}
               onChange={(e) => {
                 setQuery(e.target.value);
                 setVisible(48);
               }}
-              placeholder="Search 1,000+ tools — try ‘email’, ‘design’, ‘analytics’…"
-              className="w-full bg-transparent text-base text-foreground placeholder:text-muted-foreground focus:outline-none"
+              placeholder="Search tools — try email, design, analytics..."
+              className="w-full bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none sm:text-base"
             />
           </div>
         </div>
@@ -106,8 +105,8 @@ function Index() {
 
       {/* Filters */}
       <section className="sticky top-0 z-20 border-b border-border bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-3 px-5 py-4">
-          <div className="flex items-center gap-1 rounded-full border border-border bg-card p-1">
+        <div className="mx-auto flex max-w-6xl items-center gap-2 overflow-x-auto px-4 py-3 sm:gap-3 sm:px-5 sm:py-4">
+          <div className="flex shrink-0 items-center gap-1 rounded-full border border-border bg-card p-1">
             {PRICING_FILTERS.map((f) => (
               <button
                 key={f}
@@ -115,7 +114,7 @@ function Index() {
                   setPricing(f);
                   setVisible(48);
                 }}
-                className={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                className={`rounded-full px-2.5 py-1 text-[11px] font-medium transition-colors sm:px-3 sm:text-xs ${
                   pricing === f
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -132,7 +131,7 @@ function Index() {
               setCategory(e.target.value);
               setVisible(48);
             }}
-            className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-foreground focus:border-primary focus:outline-none"
+            className="shrink-0 rounded-full border border-border bg-card px-2.5 py-1.5 text-[11px] text-foreground focus:border-primary focus:outline-none sm:px-3 sm:text-xs"
           >
             {allCategories.map((c) => (
               <option key={c} value={c}>
@@ -147,7 +146,7 @@ function Index() {
               setPlatform(e.target.value);
               setVisible(48);
             }}
-            className="rounded-full border border-border bg-card px-3 py-1.5 text-xs text-foreground focus:border-primary focus:outline-none"
+            className="shrink-0 rounded-full border border-border bg-card px-2.5 py-1.5 text-[11px] text-foreground focus:border-primary focus:outline-none sm:px-3 sm:text-xs"
           >
             <option value="All">All platforms</option>
             {PLATFORMS.map((p) => (
@@ -157,7 +156,7 @@ function Index() {
             ))}
           </select>
 
-          <span className="ml-auto text-xs text-muted-foreground">
+          <span className="ml-auto shrink-0 text-[11px] text-muted-foreground sm:text-xs">
             {filtered.length.toLocaleString()} results
           </span>
         </div>
@@ -194,18 +193,7 @@ function Index() {
 
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-8 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>
-            Data seeded from{" "}
-            <a
-              className="text-primary hover:underline"
-              href="https://peerpush.net"
-              target="_blank"
-              rel="noreferrer"
-            >
-              PeerPush
-            </a>
-            's open product API. All trademarks belong to their respective owners.
-          </p>
+          <p>Developed by Lintshiwe</p>
           <span className="inline-flex items-center gap-1.5">
             <Github className="h-3.5 w-3.5" /> Built as an open directory
           </span>
