@@ -73,15 +73,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "OpenStack — Free & Open Source Tools Directory" },
-      { name: "description", content: "A curated, well-organised directory of free, freemium, and open-source websites and tools — searchable by category, platform, and pricing." },
+      {
+        name: "description",
+        content:
+          "A curated, well-organised directory of free, freemium, and open-source websites and tools — searchable by category, platform, and pricing.",
+      },
       { name: "author", content: "OpenStack" },
+      { name: "robots", content: "noai, noimageai" },
       { property: "og:title", content: "OpenStack — Free & Open Source Tools Directory" },
-      { property: "og:description", content: "Browse hundreds of free, freemium, and open-source products and websites in one place." },
+      {
+        property: "og:description",
+        content:
+          "Browse hundreds of free, freemium, and open-source products and websites in one place.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@OpenStackHQ" },
     ],
     links: [
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/favicon.png",
+      },
       {
         rel: "stylesheet",
         href: appCss,
@@ -99,6 +113,39 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function(){
+  var BLOCKED_KEYS = new Set(["F12"]);
+  var CTRL_BLOCKED = new Set(["KeyI","KeyJ","KeyC","KeyU","KeyS","KeyP"]);
+
+  document.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+
+  document.addEventListener("keydown", function(e){
+    if(BLOCKED_KEYS.has(e.key)){ e.preventDefault(); return false; }
+    if((e.ctrlKey||e.metaKey)&&e.shiftKey&&CTRL_BLOCKED.has(e.code)){ e.preventDefault(); return false; }
+    if((e.ctrlKey||e.metaKey)&&e.key==="u"){ e.preventDefault(); return false; }
+  });
+
+  var devtoolsOpen = false;
+  var threshold = 160;
+  var check = function(){
+    var w = window.outerWidth - window.innerWidth > threshold;
+    var h = window.outerHeight - window.innerHeight > threshold;
+    if(w || h){ devtoolsOpen = true; }
+  };
+  setInterval(check, 1000);
+
+  var el = document.createElement("div");
+  Object.defineProperty(el, "id", {
+    get: function(){ devtoolsOpen = true; return ""; }
+  });
+  setInterval(function(){ console.log(el); console.clear(); }, 2000);
+})();
+          `,
+          }}
+        />
       </head>
       <body>
         {children}

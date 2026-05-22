@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
-import { Search, Sparkles, Github } from "lucide-react";
+import { Search, Github } from "lucide-react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import productsData from "@/data/products.json";
 import { ProductCard, type Product } from "@/components/ProductCard";
 
@@ -56,25 +57,36 @@ function Index() {
         className="relative overflow-hidden border-b border-border"
         style={{ background: "var(--gradient-hero)" }}
       >
-        <div
+        <DotLottieReact
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-30"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 20% 20%, oklch(0.55 0.14 155 / 0.12), transparent 40%), radial-gradient(circle at 80% 30%, oklch(0.55 0.12 220 / 0.08), transparent 45%)",
-          }}
+          className="pointer-events-none absolute inset-0 opacity-20"
+          src="https://lottie.host/e641272e-039b-4612-96de-138acfbede6e/bc0sW78EeR.lottie"
+          autoplay
+          loop
+          renderConfig={{ autoResize: true }}
         />
         <div className="relative mx-auto max-w-6xl px-5 py-16 md:py-24">
+          <img
+            src="/logo.png"
+            alt="OpenStack"
+            className="mb-5 h-12 w-12 rounded-xl border border-border/50 bg-card/60 object-cover backdrop-blur"
+          />
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            {PRODUCTS.length.toLocaleString()} tools indexed · {freeCount.toLocaleString()} free or freemium
+            <DotLottieReact
+              className="h-5 w-5"
+              src="https://lottie.host/f315768c-a29b-41fd-b5a8-a1c1dfb36cd2/CRiiNg8fqQ.lottie"
+              autoplay
+              loop
+            />
+            {PRODUCTS.length.toLocaleString()} tools indexed · {freeCount.toLocaleString()} free or
+            freemium
           </div>
           <h1 className="mt-5 text-4xl font-bold tracking-tight md:text-6xl">
             The open directory of <span className="text-primary">useful websites</span>
           </h1>
           <p className="mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
-            A curated, well-organised catalog of free, freemium, open-source and paid tools — searchable
-            by category, platform, and pricing. Seeded from the PeerPush community.
+            A curated, well-organised catalog of free, freemium, open-source and paid tools —
+            searchable by category, platform, and pricing. Seeded from the PeerPush community.
           </p>
 
           <div className="mt-8 flex w-full max-w-2xl items-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 shadow-lg">
@@ -156,7 +168,9 @@ function Index() {
         {shown.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border bg-card/40 px-6 py-20 text-center">
             <p className="text-lg font-medium">No tools match those filters.</p>
-            <p className="mt-1 text-sm text-muted-foreground">Try removing a filter or clearing the search.</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Try removing a filter or clearing the search.
+            </p>
           </div>
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -182,7 +196,12 @@ function Index() {
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-8 text-xs text-muted-foreground md:flex-row md:items-center">
           <p>
             Data seeded from{" "}
-            <a className="text-primary hover:underline" href="https://peerpush.net" target="_blank" rel="noreferrer">
+            <a
+              className="text-primary hover:underline"
+              href="https://peerpush.net"
+              target="_blank"
+              rel="noreferrer"
+            >
               PeerPush
             </a>
             's open product API. All trademarks belong to their respective owners.
